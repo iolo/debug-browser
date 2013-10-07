@@ -27,33 +27,42 @@ getting started
 3. debug log with debug!
 
   ```js
-  var debug = $debug('foo');
+  var debug = $debug('debug');
   var DEBUG = debug.enabled;
   ...
   DEBUG && debug('hello, world!');
 
+  ...
   var foo = $debug('foo');
   foo('hello, foo!');
 
+  ...
   var bar = $debug('bar');
   foo('hello, bar!');
   ```
 
-  to enable all tags:
+4. checkout your web inspector
+
+  it looks like [this](http://toybox.iolo.kr/img/debug-browser.png)(big screenshot).
+
+configurations
+--------------
+
+set global variable `DEBUG`
+
+  * to enable all tags(default):
+
   ```js
   window.DEBUG = '*';
   //DEBUG = '*';
-  ```js
-
-  to disable all tags:
   ```
+
+  * to disable all tags:
+
+  ```js
   window.DEBUG = '';
   //DEBUG = '';
   ```
-
-4. checkout your web inspector
-
-  it looks like [this](http://toybox.iolo.kr/img/debug-browser.png)(big screenshot)
 
 ---
 that's all folks!
