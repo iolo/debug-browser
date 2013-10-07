@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>debug-browser</title>
+</head>
+<body>
+
+<h1>debug-browser sample</h1>
+
+<p>This is not automated test page.</p>
+
+<p>Open Web Inspector(Developer Console)!</p>
+
+<script src="../debug_browser.js"></script>
+<script>
+  window.DEBUG = '*';
+
+  function fakemodule(name, count) {
+    var debug = $debug(name);
+    var DEBUG = debug.enabled;
+
+    var interval = setInterval(function () {
+      DEBUG && debug('hello,world from', name, 'at', new Date())
+      count -= 1;
+      if (!count) {
+        clearInterval(interval);
+      }
+    }, 500 + Math.floor(Math.random() * 500));
+  }
+
+  fakemodule('foo', 10);
+  fakemodule('bar', 10);
+  fakemodule('baz', 10);
+  fakemodule('qux', 10);
+</script>
+</body>
+
+</html>

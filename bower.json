@@ -1,0 +1,23 @@
+{
+  "name": "debug-browser",
+  "version": "0.0.1",
+  "authors": [
+    "Dongsu Jang <iolothebard@gmail.com>"
+  ],
+  "description": "tjholowaychuk's debug clone for browser environment",
+  "main": "debug_browser.js",
+  "keywords": [
+    "debug",
+    "console",
+    "log"
+  ],
+  "license": "MIT",
+  "homepage": "http://github.com/iolo/debug-browser",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
