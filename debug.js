@@ -12,8 +12,12 @@
 
   var debugInitialized = false;
 
-  function init() {
-    (window.DEBUG || '*').split(/[\s,]+/).forEach(function (tag) {
+  function init(config) {
+    config = config || window.DEBUG || window.document.documentElement.getAttribute('data-debug') || '';
+    debugEnabled = [];
+    debugDisabled = [];
+    // shameless copy and paste from tjholowaychuk's debug.
+    config.split(/[\s,]+/).forEach(function (tag) {
       tag = tag.replace('*', '.*?');
       if (tag[0] === '-') {
         debugDisabled.push(new RegExp('^' + tag.substr(1) + '$'));
@@ -81,7 +85,17 @@
     return coloredLogger(tag);
   }
 
+  debug.init = init;
+
+  var oldDebug = window.$debug;
+
+  debug.noConflict = function () {
+    window.$debug = oldDebug;
+    return debug;
+  };
+
   // exports as '$debug'
   window.$debug = debug;
+
 
 }(window, console));

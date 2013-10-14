@@ -21,24 +21,37 @@ getting started
 2. load script in your html pages:
 
   ```html
-  <script src="debug_browser.js"></script>
+  <script src="debug.js"></script>
   ```
 
-3. debug log with debug!
+  or
+
+  ```html
+  <script src="debug.min.js"></script>
+  ```
+
+3. get a logger and emit log with debug!
 
   ```js
   var debug = $debug('debug');
-  var DEBUG = debug.enabled;
+  debug('hello, world!');
   ...
+  var DEBUG = debug.enabled;
   DEBUG && debug('hello, world!');
 
   ...
   var foo = $debug('foo');
   foo('hello, foo!');
+  ...
+  var FOO = foo.enabled;
+  FOO && foo('hello, foo!');
 
   ...
   var bar = $debug('bar');
-  foo('hello, bar!');
+  bar('hello, bar!');
+  ...
+  var BAR = bar.enabled;
+  BAR && bar('hello, bar!');
   ```
 
 4. checkout your web inspector
@@ -48,21 +61,33 @@ getting started
 configurations
 --------------
 
-set global variable `DEBUG`
+* set global variable `DEBUG` *before* `debug.js` is loaded:
 
-  * to enable all tags(default):
-
-  ```js
-  window.DEBUG = '*';
-  //DEBUG = '*';
+  ```html
+  <script>window.DEBUG='*'</script>
+  <script src="debug.js"></script>
   ```
 
-  * to disable all tags:
+  or set `data-debug` attribute on `html` tag(since 0.0.2):
 
-  ```js
-  window.DEBUG = '';
-  //DEBUG = '';
+  ```html
+  <html data-debug="*">
+  ...
+  <script src="debug.js"></script>
+  </html>
   ```
+
+  or init manually *after* `debug.js` is loaded(since 0.0.2):
+
+  ```html
+  <script src="debug.js"></script>
+  <script>
+  window.$debug.init('*');
+  </script>
+  ```
+
+* see tjholowaychuk's document on [conventions](https://github.com/visionmedia/debug#conventions)
+  and [wildcards](https://github.com/visionmedia/debug#wildcards)
 
 ---
 that's all folks!

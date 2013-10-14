@@ -1,11 +1,11 @@
 {
   "name": "debug-browser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "authors": [
     "Dongsu Jang <iolothebard@gmail.com>"
   ],
   "description": "tjholowaychuk's debug clone for browser environment",
-  "main": "debug_browser.js",
+  "main": ["debug.js", "debug.min.js"],
   "keywords": [
     "debug",
     "console",

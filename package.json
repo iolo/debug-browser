@@ -1,0 +1,25 @@
+{
+  "name": "debug-browser",
+  "version": "0.0.2",
+  "description": "tjholowaychuk's debug clone for browser environment",
+  "author": "Dongsu Jang <iolothebard@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:iolo/debug-browser.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+  },
+  "optionalDependencies": {
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-qunit": "latest",
+    "grunt-contrib-uglify": "latest"
+  },
+  "directories": {
+    "lib": "./libs"
+  },
+  "main": "./libs/debug"
+}
