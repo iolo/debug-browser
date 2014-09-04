@@ -1,3 +1,10 @@
+DEPRECATION NOTICE
+==================
+
+This project is abandoned.
+
+You could use the original [debug](https://github.com/visionmedia/debug) for browser environment.
+
 debug-browser
 =============
 
